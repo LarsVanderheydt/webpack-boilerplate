@@ -10,8 +10,8 @@
 - Cleaning dist map with CleanWebpackPlugin
 
 ```
-yarn start // development
-yarn build // production
+yarn start
+yarn build
 ```
 
 > Open issues when you see one or to request new features
