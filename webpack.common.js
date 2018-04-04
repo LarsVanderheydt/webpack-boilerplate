@@ -1,9 +1,36 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const copy = new CopyWebpackPlugin(
+  [
+    {
+      from: `./src/assets`,
+      to: `./assets`,
+    },
+    {
+      from: `./src/**.html`,
+      to: `./`,
+      flatten: true,
+    },
+  ],
+  {
+    ignore: [`.DS_Store`],
+  },
+);
 
 module.exports = {
   entry: './src/js/index.js',
+
+  output: {
+    filename: 'js/[name].js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+
+  resolve: {
+    extensions: [`.js`, `.css`],
+  },
 
   module: {
     rules: [
@@ -22,13 +49,15 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.html$/,
+        loader: `html-loader`,
+        options: {
+          attrs: [`audio:src`, `img:src`, `video:src`, `source:srcset`], // read src from video, img & audio tag
+        },
+      },
     ],
   },
 
-  plugins: [new CleanWebpackPlugin(['dist']), new HtmlWebpackPlugin()],
-
-  output: {
-    filename: 'js/[name].[hash].js',
-    path: path.resolve(__dirname, 'dist'),
-  },
+  plugins: [copy, new CleanWebpackPlugin(['dist'])],
 };
