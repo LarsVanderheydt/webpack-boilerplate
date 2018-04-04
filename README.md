@@ -14,6 +14,9 @@
 ```
 yarn start
 yarn build
+yarn zeit   // deploy app or static files on zeit with this command
 ```
+
+> to adjust the name of your app, change the name in the now.json file
 
 > Open issues when you see one or to request new features
