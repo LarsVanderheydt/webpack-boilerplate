@@ -1,5 +1,5 @@
 const init = () => {
-  console.log('welcome');
+  console.log('Javascript check!');
 };
 
 init();
