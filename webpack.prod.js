@@ -6,6 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = merge(common, {
   devtool: 'source-map',
+
   plugins: [
     new UglifyJSPlugin({
       sourceMap: true,
@@ -18,6 +19,6 @@ module.exports = merge(common, {
         from: `./src/now.json`,
         to: `./`,
       },
-    ]),
+    ])
   ],
 });

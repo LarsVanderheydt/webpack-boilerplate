@@ -21,7 +21,9 @@ const copy = new CopyWebpackPlugin(
 );
 
 module.exports = {
-  entry: './src/js/index.js',
+  entry: [
+    './src/js/index.js'
+  ],
 
   output: {
     filename: 'js/[name].js',
@@ -48,6 +50,10 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.html$/,
