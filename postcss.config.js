@@ -1,7 +1,9 @@
 module.exports = {
-    plugins: [
-        require(`stylelint`),
-        require(`postcss-reporter`)({ clearMessages: true }), // prettier stylelint reporting
-        require(`postcss-cssnext`)
-    ]
+  plugins: [
+    require('postcss-import'),
+    require('postcss-url'),
+    require('postcss-cssnext'),
+    require('postcss-browser-reporter'),
+    require('postcss-custom-properties'),
+  ],
 };

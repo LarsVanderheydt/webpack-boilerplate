@@ -1,7 +1,17 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpackDashboard = require('webpack-dashboard/plugin');
+
+const hasAPI = false;
+
+let dir = "";
+
+if (hasAPI) {
+  dir = 'server/public'
+} else {
+  dir = 'dist'
+}
 
 const copy = new CopyWebpackPlugin(
   [
@@ -21,13 +31,11 @@ const copy = new CopyWebpackPlugin(
 );
 
 module.exports = {
-  entry: [
-    './src/js/index.js'
-  ],
+  entry: ['./src/js/index.js'],
 
   output: {
     filename: 'js/[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, dir),
   },
 
   resolve: {
@@ -53,7 +61,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 },
+          },
+          'postcss-loader',
+        ],
       },
       {
         test: /\.html$/,
@@ -65,5 +80,5 @@ module.exports = {
     ],
   },
 
-  plugins: [copy, new CleanWebpackPlugin(['dist'])],
+  plugins: [copy, new CleanWebpackPlugin([dir]), new webpackDashboard()],
 };
