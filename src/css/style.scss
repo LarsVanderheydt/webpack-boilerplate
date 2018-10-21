@@ -1,0 +1,18 @@
+@import './reset';
+@import './variables/colors';
+
+// this is just some test styling
+h1::after {
+    display: block;
+    content: 'style check';
+    color: $green;
+}
+
+////////////////////////////////////
+/// here starts the real stuff  ////
+////////////////////////////////////
+
+.wrapper {
+    max-width: 102rem;
+    margin: 0 auto;
+}
