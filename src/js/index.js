@@ -1,5 +1,1 @@
-const init = () => {
-  console.log('Javascript check!');
-};
-
-init();
+console.log('test');

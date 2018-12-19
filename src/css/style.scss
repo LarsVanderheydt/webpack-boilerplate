@@ -1,11 +1,13 @@
 @import './reset';
 @import './variables/colors';
+@import './_icon';
+@import './variables/_icons';
+@import './mixins/_iconize';
 
 // this is just some test styling
-h1::after {
-    display: block;
-    content: 'style check';
-    color: $green;
+h1 {
+    font-size: 2rem;
+    @include iconize('home', 'before');
 }
 
 ////////////////////////////////////
