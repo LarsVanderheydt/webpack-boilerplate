@@ -80,5 +80,5 @@ module.exports = {
   plugins: [copy, new CleanWebpackPlugin([dir]), new webpackDashboard(), new ExtractTextPlugin({ // define where to save the file
     filename: 'css/[name].bundle.css',
     allChunks: true,
-  }),],
+  })],
 };
