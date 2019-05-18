@@ -32,7 +32,7 @@ const copy = new CopyWebpackPlugin(
 );
 
 module.exports = {
-  entry: ['./src/js/index.js', './src/css/style.scss'],
+  entry: ['./src/js/index.ts', './src/css/style.scss'],
 
   output: {
     filename: 'js/[name].js',
@@ -40,7 +40,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [`.js`, `.css`],
+    extensions: [`.js`, `.css`, `.ts`],
   },
 
   module: {
@@ -52,18 +52,17 @@ module.exports = {
           {
             loader: `babel-loader`,
           },
-          {
-            loader: `eslint-loader`,
-            options: {
-              fix: true,
-            },
-          },
         ],
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract([
-          'css-loader', 
+          'css-loader',
           'sass-loader'
         ]),
       },

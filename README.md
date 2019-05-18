@@ -6,10 +6,10 @@
 - Minified with Uglifyjs-webpack-plugin
 - Babel integration with babel-preset-env
 - Hot reloading with webpack-dev-server
-- ESLint for javascript linting
 - Cleaning dist map with CleanWebpackPlugin
 - Copy html & assets with CopyWebpackPlugin
 - Html loader
+- SASS
 
 ```
 yarn start
