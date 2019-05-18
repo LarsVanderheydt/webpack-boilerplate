@@ -3,10 +3,15 @@
 @import './_icon';
 @import './variables/_icons';
 @import './mixins/_iconize';
+@import './mixins/_rem';
+
+
+html {
+    font-size: 100%;
+}
 
 // this is just some test styling
 h1 {
-    font-size: 2rem;
     @include iconize('home', 'before');
 }
 
@@ -14,7 +19,7 @@ h1 {
 /// here starts the real stuff  ////
 ////////////////////////////////////
 
-.wrapper {
+.container {
     max-width: 102rem;
     margin: 0 auto;
 }
