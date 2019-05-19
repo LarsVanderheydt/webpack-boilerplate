@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-const ts = (param) => {
+const js = (param) => {
   console.log($(param));
 }
-ts('.wrapper');
+js('.wrapper');
