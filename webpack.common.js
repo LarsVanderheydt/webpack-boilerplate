@@ -32,7 +32,7 @@ const copy = new CopyWebpackPlugin(
 );
 
 module.exports = {
-  entry: ['./src/js/index.ts', './src/css/style.scss'],
+  entry: ['./src/js/index.js', './src/css/style.scss'],
 
   output: {
     filename: 'js/[name].js',
